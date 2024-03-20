@@ -1,18 +1,36 @@
-import { useRef } from "react";
-import { useNavigate } from "react-router-dom"; // Ensure useNavigate is imported correctly
+import { useRef, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
 const CreateWord = () => {
-  const days = useFetch("http://localhost:3000/days");
-  const navigate = useNavigate(); // Correctly using useNavigate here
+  const fetchedDays = useFetch("http://localhost:3000/days");
+  const navigate = useNavigate();
 
   const engRef = useRef(null);
   const korRef = useRef(null);
   const dayRef = useRef(null);
   const janRef = useRef(null);
 
+  const initialItems = [
+    { id: "structure", day: "구조 구성도" },
+    { id: "specification", day: "의장 시방서" },
+  ];
+
+  const [days, setDays] = useState(initialItems);
+
+  useEffect(() => {
+    if (fetchedDays) {
+      setDays([...initialItems, ...fetchedDays]);
+    }
+  }, [fetchedDays]);
+
   function onSubmit(e) {
-    e.preventDefault(); // Ensuring default form submission is prevented
+    e.preventDefault();
+
+    if (!engRef.current.value || !korRef.current.value || !janRef.current.value) {
+      alert("모든 필드를 입력해주세요.");
+      return;
+    }
 
     fetch(`http://localhost:3000/words/`, {
       method: "POST",
@@ -35,40 +53,50 @@ const CreateWord = () => {
       })
       .then(() => {
         alert("생성이 완료 되었습니다");
-        navigate(`/day/${dayRef.current.value}`); // Correct use of navigate
+        navigate(`/day/${dayRef.current.value}`);
       });
   }
 
-  // Check if 'days' data is correctly fetched and utilized
+  function onCancel() {
+    navigate(-1); // 이전 페이지로 이동
+  }
+
   return (
-    <form onSubmit={onSubmit}>
-      {" "}
-      {/* onSubmit handler attached to form */}
-      <div className="input_area">
-        <label>Eng</label>
-        <input type="text" placeholder="computer" ref={engRef} /> {/* ref is correctly used */}
-      </div>
-      <div className="input_area">
-        <label>Kor</label>
-        <input type="text" placeholder="컴퓨터" ref={korRef} />
-      </div>
-      <div className="input_area">
-        <label>jan</label>
-        <input type="text" placeholder="컴퓨터" ref={janRef} />
-      </div>
-      <div className="input_area">
-        <label>항목</label>
-        <select ref={dayRef}>
-          {days &&
-            days.map((day) => (
+    <div style={{ display: "flex", justifyContent: "center", paddingTop: "20px", overflowX: "auto" }}>
+      <form onSubmit={onSubmit} style={{ width: "auto", margin: "0 auto", maxWidth: "90%" }}>
+        <div className="input_area" style={{ fontSize: "0.8em", marginBottom: "10px" }}>
+          <label>Portfolio Name</label>
+          <input type="text" ref={engRef} style={{ width: "80%", fontSize: "0.8em" }} />
+        </div>
+        <div className="input_area" style={{ fontSize: "0.8em", marginBottom: "10px" }}>
+          <label>Owner</label>
+          <input type="text" ref={korRef} style={{ width: "80%", fontSize: "0.8em" }} />
+        </div>
+        <div className="input_area" style={{ fontSize: "0.8em", marginBottom: "10px" }}>
+          <label>Type</label>
+          <input type="text" ref={janRef} style={{ width: "80%", fontSize: "0.8em" }} />
+        </div>
+
+        <div className="input_area" style={{ fontSize: "0.8em", marginBottom: "10px" }}>
+          <label>Data list</label>
+          <select ref={dayRef} style={{ width: "80%", fontSize: "0.8em" }}>
+            {days.map((day) => (
               <option key={day.id} value={day.day}>
                 {day.day}
               </option>
             ))}
-        </select>
-      </div>
-      <button type="submit">저장</button> {/* Ensure button is of type submit */}
-    </form>
+          </select>
+        </div>
+        <div style={{ display: "flex" }}>
+          <button type="submit" style={{ fontSize: "0.6em" }}>
+            저장
+          </button>
+          <button type="button" onClick={onCancel} style={{ fontSize: "0.6em", marginLeft: "5px" }}>
+            취소
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

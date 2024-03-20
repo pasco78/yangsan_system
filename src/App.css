@@ -91,8 +91,8 @@ table td:first-child {
 
 .btn_del {
   margin-left: 10px;
-  color: #fff;
-  background-color: firebrick;
+  color: black;
+  background-color: gray;
 }
 
 button {
@@ -103,8 +103,8 @@ button {
   border: 0 none;
   border-radius: 6px;
   padding: 10px 20px;
-  color: #fff;
-  background-color: dodgerblue;
+  color: black;
+  background-color: gray;
 }
 
 .input_area {

@@ -1,37 +1,84 @@
 {
-  "days": [
-    {
-      "id": "eb37",
-      "day": "구조 구성도"
-    },
-    {
-      "id": "b6fa",
-      "day": "의장 시방서"
-    },
-    {
-      "id": "2ffc",
-      "day": "FMEA"
-    },
-    {
-      "id": "0d48",
-      "day": "개발 부품 리스트"
-    }
-  ],
+  "days": [],
   "words": [
     {
-      "id": "bd7f",
-      "day": "구조 구성도",
-      "eng": "ㄴㅇㄴㅇ",
-      "kor": "ㄴㅇㄴㅇㄴ",
-      "jan": "ㅇㄴㅇ",
+      "id": "6c9f",
+      "day": "ㄴㄴㅁ",
+      "eng": "",
+      "kor": "",
+      "jan": "",
       "isDone": false
     },
     {
-      "id": "df7a",
+      "id": "bbe6",
+      "day": "ㄴㄴㅁ",
+      "eng": "",
+      "kor": "",
+      "jan": "",
+      "isDone": false
+    },
+    {
+      "id": "f9f3",
+      "day": "sdfd",
+      "eng": "dfdf",
+      "kor": "dfd",
+      "jan": "fdfdf",
+      "isDone": false
+    },
+    {
+      "id": "e782",
+      "day": "sdfd",
+      "eng": "",
+      "kor": "",
+      "jan": "",
+      "isDone": false
+    },
+    {
+      "id": "859a",
+      "day": "sdfd",
+      "eng": "",
+      "kor": "",
+      "jan": "",
+      "isDone": false
+    },
+    {
+      "id": "4152",
+      "day": "sdfd",
+      "eng": "",
+      "kor": "",
+      "jan": "",
+      "isDone": false
+    },
+    {
+      "id": "7b66",
       "day": "구조 구성도",
-      "eng": "ㅎㄱㄱ",
-      "kor": "ㄱㅎㄱㅎ",
-      "jan": "ㄱㅎㄱㅎ",
+      "eng": "dfdfd",
+      "kor": "fdfdf",
+      "jan": "dfdfdf",
+      "isDone": true
+    },
+    {
+      "id": "3011",
+      "day": "구조 구성도",
+      "eng": "sdsds",
+      "kor": "dsdsd",
+      "jan": "sdsd",
+      "isDone": false
+    },
+    {
+      "id": "c63f",
+      "day": "구조 구성도",
+      "eng": "rff",
+      "kor": "fffr",
+      "jan": "rfrf",
+      "isDone": false
+    },
+    {
+      "id": "2003",
+      "day": "구조 구성도",
+      "eng": "frfr",
+      "kor": "frfr",
+      "jan": "frf",
       "isDone": false
     }
   ]
