@@ -1,5 +1,10 @@
 {
-  "days": [],
+  "days": [
+    {
+      "id": "d567",
+      "day": "dfdfd"
+    }
+  ],
   "words": [
     {
       "id": "6c9f",
@@ -58,27 +63,43 @@
       "isDone": true
     },
     {
-      "id": "3011",
+      "id": "e6c8",
+      "day": "의장 시방서",
+      "eng": "adsd",
+      "kor": "sdsd",
+      "jan": "sdsds",
+      "isDone": false
+    },
+    {
+      "id": "1327",
       "day": "구조 구성도",
       "eng": "sdsds",
-      "kor": "dsdsd",
+      "kor": "dsd",
       "jan": "sdsd",
       "isDone": false
     },
     {
-      "id": "c63f",
+      "id": "5d16",
       "day": "구조 구성도",
-      "eng": "rff",
-      "kor": "fffr",
-      "jan": "rfrf",
+      "eng": "dss",
+      "kor": "dsds",
+      "jan": "dsdsd",
       "isDone": false
     },
     {
-      "id": "2003",
+      "id": "f1f9",
       "day": "구조 구성도",
-      "eng": "frfr",
-      "kor": "frfr",
-      "jan": "frf",
+      "eng": "dfdfd",
+      "kor": "fdfdf",
+      "jan": "dfdfd",
+      "isDone": false
+    },
+    {
+      "id": "deb8",
+      "day": "구조 구성도",
+      "eng": "dfdfd",
+      "kor": "fdfd",
+      "jan": "fdfd",
       "isDone": false
     }
   ]

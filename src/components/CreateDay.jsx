@@ -1,31 +1,22 @@
 import { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { initialItems } from "./initialItems"; // Ensure the path is correct
 
 export default function CreateDay() {
-  const navigate = useNavigate();
   const dayRef = useRef(null);
   const [days, setDays] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [inputValue, setInputValue] = useState("");
-
-  // 사용자가 정의한 초기 항목
-  const initialItems = [
-    { id: 'structure', day: '구조 구성도' },
-    { id: 'specification', day: '의장 시방서' }
-  ];
 
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch("http://localhost:3000/days");
         if (!response.ok) {
-          throw new Error("데이터를 불러오는 데 실패했습니다.");
+          throw new Error("Data fetch failed.");
         }
         const data = await response.json();
-        // 데이터 로딩이 성공적으로 완료된 후 초기 항목 설정
-        setDays([...initialItems, ...data]); // 초기 항목과 로드된 데이터 병합
+        setDays([...initialItems, ...data]);
       } catch (error) {
-        console.error("데이터 로딩 중 오류:", error);
+        console.error("Error loading data:", error);
       } finally {
         setLoading(false);
       }
@@ -36,18 +27,14 @@ export default function CreateDay() {
   function addDay() {
     const dayValue = dayRef.current.value.trim();
     if (!dayValue) {
-      alert("File list 추가가 필요합니다.");
+      alert("Please add a file list.");
       return;
     }
 
     fetch("http://localhost:3000/days/", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        day: dayValue,
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ day: dayValue }),
     })
     .then((res) => {
       if (!res.ok) {
@@ -56,9 +43,15 @@ export default function CreateDay() {
       return res.json();
     })
     .then((newDay) => {
-      setDays((prevDays) => [...prevDays, newDay]);
-      alert("File list 추가가 완료 되었습니다");
-      dayRef.current.value = ""; // 입력 값 초기화
+      const updatedDays = [...days, newDay];
+      setDays(updatedDays);
+      dayRef.current.value = ""; // Reset input value
+
+      // Dispatch an event with the updated list
+      const event = new CustomEvent('updateDayList', { detail: updatedDays });
+      window.dispatchEvent(event);
+
+      alert("File list added successfully");
     })
     .catch((error) => {
       console.error("Error adding day:", error);
@@ -66,12 +59,16 @@ export default function CreateDay() {
   }
 
   function deleteDay(id) {
-    fetch(`http://localhost:3000/days/${id}`, {
-      method: "DELETE",
-    })
+    fetch(`http://localhost:3000/days/${id}`, { method: "DELETE" })
     .then(() => {
-      setDays((prevDays) => prevDays.filter((day) => day.id !== id));
-      alert("삭제가 완료 되었습니다");
+      const updatedDays = days.filter(day => day.id !== id);
+      setDays(updatedDays);
+
+      // Dispatch an event with the updated list
+      const event = new CustomEvent('updateDayList', { detail: updatedDays });
+      window.dispatchEvent(event);
+
+      alert("Day deleted successfully");
     })
     .catch((error) => {
       console.error("Error deleting day:", error);
@@ -85,27 +82,13 @@ export default function CreateDay() {
   return (
     <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", alignItems: "flex-start", width: "100%" }}>
       <div style={{ width: "20%" }}>
-        <input
-          type="text"
-          ref={dayRef}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="File name"
-          style={{ fontSize: "50%", width: "100%" }}
-        />
-        <button onClick={addDay} style={{ fontSize: "50%", marginTop: "10px", width: "100%" }}>
-          Add list
-        </button>
+        <input type="text" ref={dayRef} placeholder="File name" style={{ fontSize: "50%", width: "100%" }} />
+        <button onClick={addDay} style={{ fontSize: "50%", marginTop: "10px", width: "100%" }}>Add list</button>
         <ul style={{ listStyle: "none", padding: 0 }}>
-          {days.map((day) => (
+          {days.filter(day => !initialItems.find(item => item.id === day.id)).map((day) => (
             <li key={day.id} style={{ marginTop: "10px", display: "flex", alignItems: "center" }}>
               <span style={{ fontSize: "50%", width: "80%" }}>{day.day}</span>
-              <button
-                onClick={() => deleteDay(day.id)}
-                style={{ fontSize: "50%", marginLeft: "10px", width: "70px" }}
-              >
-                삭제
-              </button>
+              <button onClick={() => deleteDay(day.id)} style={{ fontSize: "50%", marginLeft: "10px", width: "70px" }}>Delete</button>
             </li>
           ))}
         </ul>
