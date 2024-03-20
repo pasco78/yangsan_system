@@ -9,15 +9,16 @@ const Day = () => {
 
   return (
     <div>
-      <div style={{ fontSize: "70%" }}>{day}</div>
-      <table>
-        <tbody>
-          {words.map((word) => (
-            <Word word={word} key={word.id} />
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <div style={{ fontSize: "80%" }}>{day}</div>
+    <table>
+ 
+      <tbody>
+        {words.map((word) => (
+          <Word word={word} key={word.id} />
+        ))}
+      </tbody>
+    </table>
+  </div>
   );
 };
 

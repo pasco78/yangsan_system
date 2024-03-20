@@ -80,9 +80,9 @@ export default function CreateDay() {
   }
 
   return (
-<div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", alignItems: "flex-start", width: "100%", fontSize: "70%" }}>
+<div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", fontSize: "70%", marginTop: "-250px" }}>
   <div style={{ width: "20%" }}>
-    <input type="text" ref={dayRef} placeholder="File name" style={{ width: "100%", fontSize: "inherit" }} />
+    <input type="text" ref={dayRef} style={{ width: "95%", fontSize: "inherit", height: "30px" }} />
     <button onClick={addDay} style={{ marginTop: "10px", width: "100%", fontSize: "inherit" }}>Add list</button>
     <ul style={{ listStyle: "none", padding: 0 }}>
       {days.filter(day => !initialItems.find(item => item.id === day.id)).map((day) => (
@@ -94,5 +94,6 @@ export default function CreateDay() {
     </ul>
   </div>
 </div>
+
   );
 }

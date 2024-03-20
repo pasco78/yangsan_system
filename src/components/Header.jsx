@@ -11,20 +11,14 @@ const Header = () => {
         </a>
       </h1>
 
-      <div className="menu">
-        <Link to="/" className="link" style={{ fontSize: "0.75rem" }}>
-          {" "}
-          {/* Changed font size to rem */}
+       <div className="menu" style={{ display: "flex", justifyContent: "flex-start", paddingLeft: "20px" }}>
+        <Link to="/" className="link" style={{ fontSize: "0.75rem", marginRight: "20px" }}>
           Menu
         </Link>
-        <Link to="/create_word" className="link" style={{ fontSize: "0.75rem" }}>
-          {" "}
-          {/* Changed font size to rem */}
+        <Link to="/create_word" className="link" style={{ fontSize: "0.75rem", marginRight: "20px" }}>
           Input Data
         </Link>
-        <Link to="/create_day" className="link" style={{ fontSize: "0.75rem" }}>
-          {" "}
-          {/* Changed font size to rem */}
+        <Link to="/create_day" className="link" style={{ fontSize: "0.75rem", marginRight: "20px" }}>
           Add Item
         </Link>
       </div>

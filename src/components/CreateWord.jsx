@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import { initialItems } from "./initialItems"; 
 
 const CreateWord = () => {
   const fetchedDays = useFetch("http://localhost:3000/days");
@@ -10,11 +11,6 @@ const CreateWord = () => {
   const korRef = useRef(null);
   const dayRef = useRef(null);
   const janRef = useRef(null);
-
-  const initialItems = [
-    { id: "structure", day: "구조 구성도" },
-    { id: "specification", day: "의장 시방서" },
-  ];
 
   const [days, setDays] = useState(initialItems);
 
@@ -62,42 +58,40 @@ const CreateWord = () => {
   }
 
   return (
-<div style={{ display: "flex", justifyContent: "center", paddingTop: "20px", overflowX: "auto", fontSize: "70%" }}>
-  <form onSubmit={onSubmit} style={{ width: "auto", margin: "0 auto", maxWidth: "90%" }}>
-    <div className="input_area" style={{ marginBottom: "10px" }}>
-      <label>Portfolio Name</label>
-      <input type="text" ref={engRef} style={{ width: "80%", fontSize: "inherit" }} />
+    <div style={{ display: "flex", justifyContent: "center", paddingTop: "20px", overflowX: "auto", fontSize: "70%" }}>
+      <form onSubmit={onSubmit} style={{ width: "auto", margin: "0 auto", maxWidth: "90%" }}>
+        <div className="input_area" style={{ marginBottom: "10px" }}>
+          <label>Portfolio Name</label>
+          <input type="text" ref={engRef} style={{ width: "80%", fontSize: "inherit" }} />
+        </div>
+        <div className="input_area" style={{ marginBottom: "10px" }}>
+          <label>Owner</label>
+          <input type="text" ref={korRef} style={{ width: "80%", fontSize: "inherit" }} />
+        </div>
+        <div className="input_area" style={{ marginBottom: "10px" }}>
+          <label>Type</label>
+          <input type="text" ref={janRef} style={{ width: "80%", fontSize: "inherit" }} />
+        </div>
+        <div className="input_area" style={{ marginBottom: "10px" }}>
+          <label>Data list</label>
+          <select ref={dayRef} style={{ width: "80%", fontSize: "inherit" }}>
+            {days.map((day) => (
+              <option key={day.id} value={day.day}>
+                {day.day}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div style={{ display: "flex" }}>
+          <button type="submit" style={{ fontSize: "inherit" }}>
+            저장
+          </button>
+          <button type="button" onClick={onCancel} style={{ fontSize: "inherit", marginLeft: "5px" }}>
+            취소
+          </button>
+        </div>
+      </form>
     </div>
-    <div className="input_area" style={{ marginBottom: "10px" }}>
-      <label>Owner</label>
-      <input type="text" ref={korRef} style={{ width: "80%", fontSize: "inherit" }} />
-    </div>
-    <div className="input_area" style={{ marginBottom: "10px" }}>
-      <label>Type</label>
-      <input type="text" ref={janRef} style={{ width: "80%", fontSize: "inherit" }} />
-    </div>
-
-    <div className="input_area" style={{ marginBottom: "10px" }}>
-      <label>Data list</label>
-      <select ref={dayRef} style={{ width: "80%", fontSize: "inherit" }}>
-        {days.map((day) => (
-          <option key={day.id} value={day.day}>
-            {day.day}
-          </option>
-        ))}
-      </select>
-    </div>
-    <div style={{ display: "flex" }}>
-      <button type="submit" style={{ fontSize: "inherit" }}>
-        저장
-      </button>
-      <button type="button" onClick={onCancel} style={{ fontSize: "inherit", marginLeft: "5px" }}>
-        취소
-      </button>
-    </div>
-  </form>
-</div>
-
   );
 };
 

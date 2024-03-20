@@ -3,18 +3,6 @@
     {
       "id": "d0cc",
       "day": "dfdf"
-    },
-    {
-      "id": "1266",
-      "day": "fgfgf"
-    },
-    {
-      "id": "7512",
-      "day": "dfdf"
-    },
-    {
-      "id": "525b",
-      "day": "vffv"
     }
   ],
   "words": [
@@ -88,7 +76,7 @@
       "eng": "sdsds",
       "kor": "dsd",
       "jan": "sdsd",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "5d16",
@@ -96,23 +84,7 @@
       "eng": "dss",
       "kor": "dsds",
       "jan": "dsdsd",
-      "isDone": false
-    },
-    {
-      "id": "f1f9",
-      "day": "구조 구성도",
-      "eng": "dfdfd",
-      "kor": "fdfdf",
-      "jan": "dfdfd",
-      "isDone": false
-    },
-    {
-      "id": "deb8",
-      "day": "구조 구성도",
-      "eng": "dfdfd",
-      "kor": "fdfd",
-      "jan": "fdfd",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "a86a",
@@ -123,19 +95,59 @@
       "isDone": false
     },
     {
-      "id": "21be",
-      "day": "구조 구성도",
-      "eng": "dv",
-      "kor": "fvfv",
-      "jan": "fvf",
-      "isDone": false
-    },
-    {
       "id": "a64f",
       "day": "dfdf",
       "eng": "vfvfv",
       "kor": "fvfv",
       "jan": "fv",
+      "isDone": false
+    },
+    {
+      "id": "c8ae",
+      "day": "의장 시방서",
+      "eng": "xzx",
+      "kor": "zxzxz",
+      "jan": "xzx",
+      "isDone": false
+    },
+    {
+      "id": "2ab6",
+      "day": "dfdf",
+      "eng": "s",
+      "kor": "s",
+      "jan": "s",
+      "isDone": false
+    },
+    {
+      "id": "27a8",
+      "day": "dfdf",
+      "eng": "axaxax",
+      "kor": "axaxax",
+      "jan": "ax",
+      "isDone": false
+    },
+    {
+      "id": "3ef3",
+      "day": "구조 구성도",
+      "eng": "Z Z",
+      "kor": "Z Z ",
+      "jan": "Z Z",
+      "isDone": false
+    },
+    {
+      "id": "2ac3",
+      "day": "구조 구성도",
+      "eng": "FEF",
+      "kor": "EFEFE",
+      "jan": "FEF",
+      "isDone": false
+    },
+    {
+      "id": "afcb",
+      "day": "개발 부품 리스트",
+      "eng": "kjkj",
+      "kor": "kjkjk",
+      "jan": "jkjkj",
       "isDone": false
     }
   ]

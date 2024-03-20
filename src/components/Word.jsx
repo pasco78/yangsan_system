@@ -88,11 +88,11 @@ export default function Word({ word: w, onDelete }) {
         <input type="file" id={"fileInput" + currentWord.id} style={{ display: "none" }} onChange={attachFile} />
         </td>
         <td style={{ width: "10%", textAlign: "center"}}>
-        {fileName && <span style={{ marginLeft: "10px", fontSize: "10px" }}>{fileName}</span>}
-        <button onClick={downloadFile} className="btn_download" style={{ fontSize: "7.5px", marginLeft:  "10px" }}>
-          다운로드
-        </button>
-      </td>
+  {fileName && <span style={{ marginLeft: "10px", fontSize: "10px" }}></span>}
+  <button onClick={downloadFile} className="btn_download" style={{ fontSize: "7.5px" }}>
+    다운로드
+  </button>
+</td>
       <td style={{ width: "8%", textAlign: "center" }}>
   <button onClick={del} className="btn_del" style={{ fontSize: "7.5px", margin: "auto" }}>
     삭제
