@@ -62,41 +62,41 @@ const CreateWord = () => {
   }
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", paddingTop: "20px", overflowX: "auto" }}>
-      <form onSubmit={onSubmit} style={{ width: "auto", margin: "0 auto", maxWidth: "90%" }}>
-        <div className="input_area" style={{ fontSize: "0.8em", marginBottom: "10px" }}>
-          <label>Portfolio Name</label>
-          <input type="text" ref={engRef} style={{ width: "80%", fontSize: "0.8em" }} />
-        </div>
-        <div className="input_area" style={{ fontSize: "0.8em", marginBottom: "10px" }}>
-          <label>Owner</label>
-          <input type="text" ref={korRef} style={{ width: "80%", fontSize: "0.8em" }} />
-        </div>
-        <div className="input_area" style={{ fontSize: "0.8em", marginBottom: "10px" }}>
-          <label>Type</label>
-          <input type="text" ref={janRef} style={{ width: "80%", fontSize: "0.8em" }} />
-        </div>
-
-        <div className="input_area" style={{ fontSize: "0.8em", marginBottom: "10px" }}>
-          <label>Data list</label>
-          <select ref={dayRef} style={{ width: "80%", fontSize: "0.8em" }}>
-            {days.map((day) => (
-              <option key={day.id} value={day.day}>
-                {day.day}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div style={{ display: "flex" }}>
-          <button type="submit" style={{ fontSize: "0.6em" }}>
-            저장
-          </button>
-          <button type="button" onClick={onCancel} style={{ fontSize: "0.6em", marginLeft: "5px" }}>
-            취소
-          </button>
-        </div>
-      </form>
+<div style={{ display: "flex", justifyContent: "center", paddingTop: "20px", overflowX: "auto" }}>
+  <form onSubmit={onSubmit} style={{ width: "auto", margin: "0 auto", maxWidth: "90%" }}>
+    <div className="input_area" style={{ fontSize: "60%", marginBottom: "10px" }}> {/* 글자 크기를 1.2배로 조정 */}
+      <label>Portfolio Name</label>
+      <input type="text" ref={engRef} style={{ width: "80%", fontSize: "60%" }} /> {/* 글자 크기를 1.2배로 조정 */}
     </div>
+    <div className="input_area" style={{ fontSize: "60%", marginBottom: "10px" }}> {/* 글자 크기를 1.2배로 조정 */}
+      <label>Owner</label>
+      <input type="text" ref={korRef} style={{ width: "80%", fontSize: "60%" }} /> {/* 글자 크기를 1.2배로 조정 */}
+    </div>
+    <div className="input_area" style={{ fontSize: "60%", marginBottom: "10px" }}> {/* 글자 크기를 1.2배로 조정 */}
+      <label>Type</label>
+      <input type="text" ref={janRef} style={{ width: "80%", fontSize: "60%" }} /> {/* 글자 크기를 1.2배로 조정 */}
+    </div>
+
+    <div className="input_area" style={{ fontSize: "60%", marginBottom: "10px" }}> {/* 글자 크기를 1.2배로 조정 */}
+      <label>Data list</label>
+      <select ref={dayRef} style={{ width: "80%", fontSize: "0.96em" }}> {/* select 요소의 글자 크기를 1.2배로 조정 */}
+        {days.map((day) => (
+          <option key={day.id} value={day.day} style={{ fontSize: "0.96em" }}> {/* option 요소들의 글자 크기를 1.2배로 조정 */}
+            {day.day}
+          </option>
+        ))}
+      </select>
+    </div>
+    <div style={{ display: "flex" }}>
+      <button type="submit" style={{ fontSize: "60%" }}> {/* 글자 크기를 1.2배로 조정 */}
+        저장
+      </button>
+      <button type="button" onClick={onCancel} style={{ fontSize: "60%", marginLeft: "5px" }}> {/* 글자 크기를 1.2배로 조정 */}
+        취소
+      </button>
+    </div>
+  </form>
+</div>
   );
 };
 

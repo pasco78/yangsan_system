@@ -3,6 +3,14 @@
     {
       "id": "d567",
       "day": "dfdfd"
+    },
+    {
+      "id": "6faa",
+      "day": "sdsdsd"
+    },
+    {
+      "id": "34cd",
+      "day": "dadad"
     }
   ],
   "words": [
@@ -100,6 +108,14 @@
       "eng": "dfdfd",
       "kor": "fdfd",
       "jan": "fdfd",
+      "isDone": false
+    },
+    {
+      "id": "63ad",
+      "day": "구조 구성도",
+      "eng": "dfdfd",
+      "kor": "fdf",
+      "jan": "df",
       "isDone": false
     }
   ]
