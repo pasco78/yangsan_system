@@ -1,8 +1,20 @@
 {
   "days": [
     {
-      "id": "d567",
-      "day": "dfdfd"
+      "id": "d0cc",
+      "day": "dfdf"
+    },
+    {
+      "id": "1266",
+      "day": "fgfgf"
+    },
+    {
+      "id": "7512",
+      "day": "dfdf"
+    },
+    {
+      "id": "525b",
+      "day": "vffv"
     }
   ],
   "words": [
@@ -68,7 +80,7 @@
       "eng": "adsd",
       "kor": "sdsd",
       "jan": "sdsds",
-      "isDone": false
+      "isDone": true
     },
     {
       "id": "1327",
@@ -100,6 +112,30 @@
       "eng": "dfdfd",
       "kor": "fdfd",
       "jan": "fdfd",
+      "isDone": false
+    },
+    {
+      "id": "a86a",
+      "day": "의장 시방서",
+      "eng": "zxzxz",
+      "kor": "xzxz",
+      "jan": "xzxzx",
+      "isDone": false
+    },
+    {
+      "id": "21be",
+      "day": "구조 구성도",
+      "eng": "dv",
+      "kor": "fvfv",
+      "jan": "fvf",
+      "isDone": false
+    },
+    {
+      "id": "a64f",
+      "day": "dfdf",
+      "eng": "vfvfv",
+      "kor": "fvfv",
+      "jan": "fv",
       "isDone": false
     }
   ]

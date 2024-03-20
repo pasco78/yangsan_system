@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function Word({ word: w, onDelete }) {
   const [currentWord, setCurrentWord] = useState(w);
   const [isDone, setIsDone] = useState(w.isDone);
   const [fileName, setFileName] = useState("");
-  const [isCheckboxVisible, setIsCheckboxVisible] = useState(false); // 체크 박스 가시성 상태
 
   useEffect(() => {
     setIsDone(w.isDone);
@@ -14,11 +13,6 @@ export default function Word({ word: w, onDelete }) {
       setFileName(savedFileName);
     }
   }, [w.isDone, currentWord.id]);
-
-  // 테이블 데이터 입력 시 체크 박스 표시
-  useEffect(() => {
-    setIsCheckboxVisible(true);
-  }, []);
 
   function toggleDone() {
     // 완료 상태를 토글하는 로직
@@ -54,7 +48,6 @@ export default function Word({ word: w, onDelete }) {
         body: JSON.stringify({ ...currentWord, isDone: true }),
       });
       setIsDone(true);
-      setIsCheckboxVisible(true); // 파일 첨부 후 체크 박스 표시
       alert("파일이 첨부되었습니다: " + file.name);
     }
   }
@@ -84,25 +77,27 @@ export default function Word({ word: w, onDelete }) {
   return (
     <tr className={isDone ? "off" : ""}>
       <td style={{ width: "5%", fontSize: "10px" }}>
-        {isCheckboxVisible && <input type="checkbox" checked={isDone} onChange={toggleDone} />}
+        {fileName && <input type="checkbox" checked={isDone} onChange={toggleDone} />}
       </td>
       <td style={{ width: "15%", fontSize: "15px" }}>{currentWord.eng}</td>
       <td style={{ width: "15%", fontSize: "15px" }}>{currentWord.kor}</td>
       <td style={{ width: "15%", fontSize: "15px" }}>{currentWord.jan}</td>
       <td style={{ width: "15%", fontSize: "15px" }}>{currentWord.j}</td>
       <td style={{ width: "10%" }}>
-        <button onClick={triggerFileInput} className="btn_attach" style={{ fontSize: "7.5px", textAlign: "center" }}>파일 첨부</button>
+        <button onClick={triggerFileInput} className="btn_attach" style={{ fontSize: "7.5px" ,}}>파일 첨부</button>
         <input type="file" id={"fileInput" + currentWord.id} style={{ display: "none" }} onChange={attachFile} />
-      </td>
-      <td style={{ width: "10%", textAlign: "center"}}>
-        {/* 파일 이름 텍스트를 보이지 않도록 수정 */}
-        {false && <span style={{ marginLeft: "10px", fontSize: "10px" }}>{fileName}</span>}
-        {/* 파일 다운로드 버튼만 표시 */}
-        {isCheckboxVisible && <button onClick={downloadFile} className="btn_download" style={{ fontSize: "7.5px", marginLeft: "10px" }}>다운로드</button>}
+        </td>
+        <td style={{ width: "10%", textAlign: "center"}}>
+        {fileName && <span style={{ marginLeft: "10px", fontSize: "10px" }}>{fileName}</span>}
+        <button onClick={downloadFile} className="btn_download" style={{ fontSize: "7.5px", marginLeft:  "10px" }}>
+          다운로드
+        </button>
       </td>
       <td style={{ width: "8%", textAlign: "center" }}>
-        <button onClick={del} className="btn_del" style={{ fontSize: "7.5px", margin: "auto" }}>삭제</button>
-      </td>
+  <button onClick={del} className="btn_del" style={{ fontSize: "7.5px", margin: "auto" }}>
+    삭제
+  </button>
+</td>
     </tr>
   );
 }

@@ -80,19 +80,19 @@ export default function CreateDay() {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", alignItems: "flex-start", width: "100%" }}>
-      <div style={{ width: "20%" }}>
-        <input type="text" ref={dayRef} placeholder="File name" style={{ fontSize: "50%", width: "100%" }} />
-        <button onClick={addDay} style={{ fontSize: "50%", marginTop: "10px", width: "100%" }}>Add list</button>
-        <ul style={{ listStyle: "none", padding: 0 }}>
-          {days.filter(day => !initialItems.find(item => item.id === day.id)).map((day) => (
-            <li key={day.id} style={{ marginTop: "10px", display: "flex", alignItems: "center" }}>
-              <span style={{ fontSize: "50%", width: "80%" }}>{day.day}</span>
-              <button onClick={() => deleteDay(day.id)} style={{ fontSize: "50%", marginLeft: "10px", width: "70px" }}>Delete</button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+<div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end", alignItems: "flex-start", width: "100%", fontSize: "70%" }}>
+  <div style={{ width: "20%" }}>
+    <input type="text" ref={dayRef} placeholder="File name" style={{ width: "100%", fontSize: "inherit" }} />
+    <button onClick={addDay} style={{ marginTop: "10px", width: "100%", fontSize: "inherit" }}>Add list</button>
+    <ul style={{ listStyle: "none", padding: 0 }}>
+      {days.filter(day => !initialItems.find(item => item.id === day.id)).map((day) => (
+        <li key={day.id} style={{ marginTop: "10px", display: "flex", alignItems: "center" }}>
+          <span style={{ width: "80%", fontSize: "inherit" }}>{day.day}</span>
+          <button onClick={() => deleteDay(day.id)} style={{ marginLeft: "10px", width: "70px", fontSize: "inherit" }}>Delete</button>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
   );
 }

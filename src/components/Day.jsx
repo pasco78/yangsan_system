@@ -1,11 +1,11 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import Word from "./Word";
-import useFetch from "../hooks/useFetch"; // useFetch 함수를 import합니다.
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Word from './Word';
+import useFetch from '../hooks/useFetch'; // 경로는 실제 구조에 맞게 조정해주세요
 
 const Day = () => {
   const { day } = useParams();
-  const words = useFetch(`http://localhost:3000/words?day=${day}`); // day 변수를 템플릿 리터럴로 사용하여 URL을 생성합니다.
+  const words = useFetch(`http://localhost:3000/words?day=${day}`);
 
   return (
     <div>
@@ -21,4 +21,4 @@ const Day = () => {
   );
 };
 
-export default Day;
+export default Day; // Day 컴포넌트를 default export로 설정
