@@ -3,6 +3,18 @@
     {
       "id": "d0cc",
       "day": "dfdf"
+    },
+    {
+      "id": "d567",
+      "day": "dfdfd"
+    },
+    {
+      "id": "6faa",
+      "day": "sdsdsd"
+    },
+    {
+      "id": "34cd",
+      "day": "dadad"
     }
   ],
   "words": [
@@ -124,22 +136,6 @@
       "eng": "axaxax",
       "kor": "axaxax",
       "jan": "ax",
-      "isDone": false
-    },
-    {
-      "id": "3ef3",
-      "day": "구조 구성도",
-      "eng": "Z Z",
-      "kor": "Z Z ",
-      "jan": "Z Z",
-      "isDone": false
-    },
-    {
-      "id": "2ac3",
-      "day": "구조 구성도",
-      "eng": "FEF",
-      "kor": "EFEFE",
-      "jan": "FEF",
       "isDone": false
     },
     {
